@@ -28,6 +28,7 @@ group :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-colorize'
   gem 'minitest-focus'
+  gem 'minitest-reporters'
 end
 
 # To use ActiveModel has_secure_password
