@@ -20,6 +20,7 @@ gem 'devise'
 
 gem 'thin'
 
+gem 'active_model_serializers'
 
 
 # To use ActiveModel has_secure_password
