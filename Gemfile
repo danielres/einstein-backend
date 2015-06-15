@@ -22,6 +22,8 @@ gem 'thin'
 
 gem 'active_model_serializers'
 
+gem 'grape'
+gem 'hashie-forbidden_attributes'
 
 group :test do
   gem 'minitest-rails'

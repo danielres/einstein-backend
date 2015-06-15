@@ -30,5 +30,11 @@ module EinsteinBackend
     config.generators do |g|
       g.test_framework :minitest, spec: true, fixture: false
     end
+
+    # Auto-load API and its subdirectories
+    config.paths.add 'app/api', glob: '**/*.rb'
+    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
+
+
   end
 end

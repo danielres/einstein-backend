@@ -40,6 +40,10 @@ GEM
       tzinfo (~> 1.1)
     ansi (1.5.0)
     arel (6.0.0)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.4.4)
@@ -48,7 +52,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     daemons (1.1.9)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -56,11 +64,26 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    equalizer (0.0.11)
     erubis (2.7.0)
     eventmachine (1.0.7)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    grape (0.11.0)
+      activesupport
+      builder
+      hashie (>= 2.1.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
+    hashie (3.4.2)
+    hashie-forbidden_attributes (0.1.1)
+      hashie (>= 3.0)
     i18n (0.7.0)
+    ice_nine (0.11.1)
     json (1.8.2)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
@@ -92,11 +115,17 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    multi_json (1.11.0)
+    multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
     rack (1.6.0)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -146,6 +175,11 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -157,6 +191,8 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   devise
+  grape
+  hashie-forbidden_attributes
   minitest-colorize
   minitest-focus
   minitest-rails
