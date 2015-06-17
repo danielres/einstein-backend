@@ -21,6 +21,9 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
+  include Rack::Test::Methods
 
   # Add more helper methods to be used by all tests here...
 end
+
+class APITest; end
