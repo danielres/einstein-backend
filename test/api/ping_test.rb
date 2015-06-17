@@ -3,7 +3,7 @@ require "test_helper"
 class APITest::Ping < ActiveSupport::TestCase
 
     def app
-      Acme::Ping
+      Sample::Ping
     end
 
     describe "GET /api/ping" do

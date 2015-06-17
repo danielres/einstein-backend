@@ -1,4 +1,4 @@
-module Acme
+module Sample
   class Ping < Grape::API
     desc 'Returns pong.'
     get :ping do

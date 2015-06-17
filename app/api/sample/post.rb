@@ -1,4 +1,4 @@
-module Acme
+module Sample
   class Post < Grape::API
     desc 'Creates a spline that can be reticulated.'
     resource :spline do

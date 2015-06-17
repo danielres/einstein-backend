@@ -1,4 +1,4 @@
-module Acme
+module Sample
   class Protected < Grape::API
     namespace :protected do
       http_basic do |username, password|

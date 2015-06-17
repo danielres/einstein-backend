@@ -3,7 +3,7 @@ require "test_helper"
 class APITest::PostTest < ActiveSupport::TestCase
 
     def app
-      Acme::Post
+      Sample::Post
     end
 
     describe "POST /api/spline" do

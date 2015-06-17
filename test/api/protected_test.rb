@@ -5,7 +5,7 @@ class APITest::Protected < ActiveSupport::TestCase
 
 
     def app
-      Acme::Protected
+      Sample::Protected
     end
 
 

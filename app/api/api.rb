@@ -1,8 +1,8 @@
 class API < Grape::API
   prefix 'api'
   format :json
-  mount Acme::Ping
-  mount Acme::Raise
-  mount Acme::Protected
-  mount Acme::Post
+  mount Sample::Ping
+  mount Sample::Raise
+  mount Sample::Protected
+  mount Sample::Post
 end
