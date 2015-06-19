@@ -5,4 +5,5 @@ class API < Grape::API
   mount Sample::Raise
   mount Sample::Protected
   mount Sample::Post
+  mount V1::Groups
 end
