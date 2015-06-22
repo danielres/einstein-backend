@@ -8,9 +8,9 @@ class AddingAGroup
     true
   end
 
-  def call
+  def call(*args)
     raise "Operation not permitted" unless authorized?
-    Group.create
+    Group.create(*args)
   end
 
 end

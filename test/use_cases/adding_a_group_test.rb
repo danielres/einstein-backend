@@ -31,9 +31,9 @@ describe AddingAGroup do
           .stubs(:authorized?)
           .returns(true)
       end
-      it "triggers Group#create" do
-        Group.expects(:create)
-        subject.call
+      it "triggers Group#create and passes all args" do
+        Group.expects(:create).with(:any, :args)
+        subject.call(:any, :args)
       end
     end
   end
