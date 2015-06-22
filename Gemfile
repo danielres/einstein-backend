@@ -32,6 +32,7 @@ group :test do
   gem 'minitest-colorize'
   gem 'minitest-focus'
   gem 'minitest-reporters'
+  gem 'minitest-stub-const'
 end
 
 group :development do

@@ -140,6 +140,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    minitest-stub-const (0.4)
     multi_json (1.11.0)
     multi_xml (0.5.5)
     nenv (0.2.0)
@@ -240,6 +241,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
+  minitest-stub-const
   pg
   pry
   rails (= 4.2.1)
