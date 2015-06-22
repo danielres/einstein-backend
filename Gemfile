@@ -33,6 +33,7 @@ group :test do
   gem 'minitest-focus'
   gem 'minitest-reporters'
   gem 'minitest-stub-const'
+  gem 'mocha'
 end
 
 group :development do

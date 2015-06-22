@@ -2,6 +2,7 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
+require "mocha/mini_test"
 
 require "minitest/reporters"
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter2.new(color: true), ENV, Minitest.backtrace_filter
