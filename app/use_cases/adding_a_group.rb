@@ -8,4 +8,8 @@ class AddingAGroup
     true
   end
 
+  def call
+    Group.create
+  end
+
 end
