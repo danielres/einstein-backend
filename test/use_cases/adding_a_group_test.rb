@@ -3,7 +3,7 @@ require "test_helper"
 describe AddingAGroup do
   let(:described_class) { AddingAGroup }
   let(:user) { User.new(username: 'a', password: '12345678', email: 'test@test.com') }
-  let(:subject) { AddingAGroup.new(user) }
+  let(:subject) { described_class.new(user) }
 
 
   describe "methods" do
@@ -32,12 +32,8 @@ describe AddingAGroup do
           .returns(true)
       end
       it "triggers Group#create" do
-        @FakeGroup = MiniTest::Mock.new
-        @FakeGroup.expect(:create, _)
-        described_class.stub_const(:Group, @FakeGroup) do
-          subject.call
-        end
-        @FakeGroup.verify.must_equal true
+        Group.expects(:create)
+        subject.call
       end
     end
   end
