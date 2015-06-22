@@ -2,7 +2,7 @@ require "test_helper"
 
 describe AddingAGroup do
   let(:described_class) { AddingAGroup }
-  let(:user) { User.new(username: 'a', password: '12345678', email: 'test@test.com') }
+  let(:user) { User.new }
   let(:subject) { described_class.new(user) }
 
 
