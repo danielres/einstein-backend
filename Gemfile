@@ -34,6 +34,11 @@ group :test do
   gem 'minitest-reporters'
 end
 
+group :development do
+  gem 'guard' # NOTE: this is necessary in newer versions
+  gem 'guard-minitest'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
