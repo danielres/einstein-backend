@@ -9,6 +9,7 @@ class AddingAGroup
   end
 
   def call
+    raise "Operation not permitted" unless authorized?
     Group.create
   end
 

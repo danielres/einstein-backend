@@ -14,13 +14,31 @@ describe AddingAGroup do
 
 
   describe "execution" do
-    it "triggers Group#create" do
-      @FakeGroup = MiniTest::Mock.new
-      @FakeGroup.expect(:create, _)
-      described_class.stub_const(:Group, @FakeGroup) do
-        subject.call
+    describe "when not authorized" do
+      before do
+        subject
+          .stubs(:authorized?)
+          .returns(false)
       end
-      @FakeGroup.verify.must_equal true
+      it "raises an error" do
+        ->{ subject.call }.must_raise RuntimeError
+      end
+    end
+
+    describe "when authorized" do
+      before do
+        subject
+          .stubs(:authorized?)
+          .returns(true)
+      end
+      it "triggers Group#create" do
+        @FakeGroup = MiniTest::Mock.new
+        @FakeGroup.expect(:create, _)
+        described_class.stub_const(:Group, @FakeGroup) do
+          subject.call
+        end
+        @FakeGroup.verify.must_equal true
+      end
     end
   end
 
