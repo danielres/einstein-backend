@@ -21,7 +21,7 @@ describe AddingAGroup do
           .returns(false)
       end
       it "raises an error" do
-        ->{ subject.call }.must_raise RuntimeError
+        ->{ subject.call }.must_raise ActionForbiddenError
       end
     end
 
