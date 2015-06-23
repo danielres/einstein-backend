@@ -34,6 +34,7 @@ group :test do
   gem 'minitest-reporters'
   gem 'minitest-stub-const'
   gem 'mocha'
+  gem 'shoulda'
 end
 
 group :development do

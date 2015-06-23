@@ -31,7 +31,7 @@ if Rails.env == 'test'
 
         def record(test)
           super
-          test.name.gsub!(/^test_\d{4}_/, '')
+          test.name.gsub!(/^(test_\d{4}_)|(test_: )/, '')
           print pad_test(test.name)
           print_colored_status(test)
           print(" (%.2fs)" % test.time) unless test.time.nil?
