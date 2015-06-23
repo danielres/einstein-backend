@@ -1,2 +1,2 @@
-class Group
+class Group < ActiveRecord::Base
 end

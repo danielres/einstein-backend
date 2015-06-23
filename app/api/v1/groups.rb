@@ -6,7 +6,9 @@ module V1
 
       desc 'Creates a new group.'
       post do
-        { name: params[:name] }
+        AddingAGroup
+          .new(User.new)
+          .call(name: params[:name])
       end
 
 
