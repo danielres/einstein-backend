@@ -10,7 +10,7 @@ class APITest::GroupsTest < ActiveSupport::TestCase
       it "creates a group" do
         post '/api/v1/groups', { group: { name: 'My group'} }
         last_response.status.must_equal 201
-        JSON.parse(last_response.body)['id'].must_equal 1
+        JSON.parse(last_response.body)['id'].must_be :present?
         JSON.parse(last_response.body)['name'].must_equal 'My group'
         JSON.parse(last_response.body)['created_at'].must_be :present?
         JSON.parse(last_response.body)['updated_at'].must_be :present?
