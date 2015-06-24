@@ -8,7 +8,7 @@ class APITest::GroupsTest < ActiveSupport::TestCase
 
     describe "POST /api/v1/groups" do
       it "creates a group" do
-        post '/api/v1/groups', { name: 'My group' }, 'Content-Type' => 'application/json'
+        post '/api/v1/groups', { group: { name: 'My group'} }, 'Content-Type' => 'application/json'
         last_response.status.must_equal 201
         JSON.parse(last_response.body)['id'].must_equal 1
         JSON.parse(last_response.body)['name'].must_equal 'My group'
