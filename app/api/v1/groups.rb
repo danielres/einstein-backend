@@ -3,12 +3,6 @@ module V1
 
     resource :groups do
 
-      params do
-        requires :group, type: Hash do
-          requires :name, type: String
-        end
-      end
-
       desc 'Creates a new group.'
       post do
         AddingAGroup

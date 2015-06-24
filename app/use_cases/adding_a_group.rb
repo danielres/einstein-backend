@@ -10,7 +10,19 @@ class AddingAGroup
 
   def call(*args)
     raise ActionForbiddenError unless authorized?
-    Group.create(*args)
+    execute(*args)
   end
+
+
+  private
+
+    def execute(*args)
+      @group = Group.new(*args)
+      if @group.save
+        @group
+      else
+        { errors: @group.errors }
+      end
+    end
 
 end

@@ -32,7 +32,7 @@ describe AddingAGroup do
           .returns(true)
       end
       it "triggers Group#create and passes all args" do
-        Group.expects(:create).with(:any, :args)
+        subject.expects(:execute).with(:any, :args)
         subject.call(:any, :args)
       end
     end
