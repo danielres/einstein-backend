@@ -16,12 +16,12 @@ class AddingAGroup
 
   private
 
-    def execute(*args)
-      @group = Group.new(*args)
-      if @group.save
-        @group
+    def execute(params, success: ->{}, failure: ->{})
+      group = Group.new(params)
+      if group.save
+        success.call(group)
       else
-        { errors: @group.errors }
+        failure.call(group)
       end
     end
 

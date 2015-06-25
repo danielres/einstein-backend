@@ -7,7 +7,11 @@ module V1
       post do
         AddingAGroup
           .new(User.new)
-          .call(params[:group])
+          .call(
+            params[:group],
+            success: ->(resource){ resource },
+            failure: ->(resource){ { errors: resource.errors } },
+          )
       end
 
 
