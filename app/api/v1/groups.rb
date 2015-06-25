@@ -10,7 +10,7 @@ module V1
           .call(
             params[:group],
             success: ->(resource){ resource },
-            failure: ->(resource){ { errors: resource.errors } },
+            failure: ->(resource){ status 400; resource.errors },
           )
       end
 
