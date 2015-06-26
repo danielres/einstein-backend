@@ -29,7 +29,6 @@ gem 'hashie-forbidden_attributes'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
-  gem 'minitest-colorize'
   gem 'minitest-focus'
   gem 'minitest-reporters'
   gem 'database_cleaner'

@@ -123,8 +123,6 @@ GEM
       capybara (~> 2.2)
       minitest (~> 5.0)
       rake
-    minitest-colorize (0.0.5)
-      minitest (>= 2.0)
     minitest-focus (1.1.1)
       minitest (>= 4, < 6)
     minitest-metadata (0.5.3)
@@ -246,7 +244,6 @@ DEPENDENCIES
   guard
   guard-minitest
   hashie-forbidden_attributes
-  minitest-colorize
   minitest-focus
   minitest-rails
   minitest-rails-capybara
