@@ -142,7 +142,6 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    minitest-stub-const (0.4)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.11.0)
@@ -252,7 +251,6 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
-  minitest-stub-const
   mocha
   pg
   pry
@@ -262,6 +260,3 @@ DEPENDENCIES
   spring
   sqlite3
   thin
-
-BUNDLED WITH
-   1.10.4
