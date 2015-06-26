@@ -28,4 +28,13 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.middleware.insert_before 'Rack::Runtime', 'Rack::Cors' do
+    allow do
+      origins '*'
+      resource '*',
+               headers: :any,
+               methods: [:get, :put, :post, :patch, :delete, :options]
+    end
+  end
+
 end
