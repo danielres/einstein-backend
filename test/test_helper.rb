@@ -4,6 +4,7 @@ require "rails/test_help"
 require "minitest/rails"
 require "mocha/mini_test"
 
+
 require "minitest/reporters"
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter2.new(color: true), ENV, Minitest.backtrace_filter
 
@@ -13,6 +14,19 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter2.new(color: true), EN
 
 # Uncomment for awesome colorful output
 # require "minitest/pride"
+
+DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean_with(:truncation)
+
+class Minitest::Rails::Spec
+  def setup
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
+end
 
 class ActiveSupport::TestCase
     ActiveRecord::Migration.check_pending!
