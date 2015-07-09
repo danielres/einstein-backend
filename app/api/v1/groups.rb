@@ -15,6 +15,18 @@ module V1
       end
 
 
+      desc 'Returns a group by id.'
+      get '/:id' do
+        ViewingAGroup
+          .new(User.new)
+          .call(
+            params[:id],
+            success: ->(resource){ GroupSerializer.new(resource, root: false) },
+            failure: ->(resource){ status 404 },
+          )
+
+      end
+
       desc 'Returns a list of groups.'
       get do
         ViewingGroups
