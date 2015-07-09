@@ -54,4 +54,21 @@ class APITest::GroupsTest < ActiveSupport::TestCase
     end
 
 
+    describe "GET /api/v1/groups/:id" do
+      describe "when a group has been created" do
+        before do
+          post '/api/v1/groups', { group: { name: 'My group', description: 'My description'} }
+        end
+        it "returns an HTTP status 201 with the representation of the resource" do
+          group_id = JSON.parse(last_response.body)['id']
+          get "/api/v1/groups/#{group_id}"
+          last_response.status.must_equal 200
+          JSON.parse(last_response.body)['id'].must_equal group_id
+          JSON.parse(last_response.body)['name'].must_equal 'My group'
+          JSON.parse(last_response.body)['description'].must_equal 'My description'
+        end
+      end
+    end
+
+
   end
