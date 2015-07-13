@@ -9,7 +9,7 @@ class APITest::GroupsTest < ActiveSupport::TestCase
     describe "POST /api/v1/groups" do
       describe "when required params are present" do
         it "returns an HTTP status 201 with the representation of the resource created" do
-          post '/api/v1/groups', { group: { name: 'My group', description: 'My description'} }
+          post '/api/v1/groups', { name: 'My group', description: 'My description'}
           last_response.status.must_equal 201
           JSON.parse(last_response.body)['id'].must_be :present?
           JSON.parse(last_response.body)['name'].must_equal 'My group'
@@ -36,8 +36,8 @@ class APITest::GroupsTest < ActiveSupport::TestCase
     describe "GET /api/v1/groups" do
       describe "when groups have been created" do
         before do
-          post '/api/v1/groups', { group: { name: 'My group 1', description: 'My description 1'} }
-          post '/api/v1/groups', { group: { name: 'My group 2', description: 'My description 2'} }
+          post '/api/v1/groups', { name: 'My group 1', description: 'My description 1'}
+          post '/api/v1/groups', { name: 'My group 2', description: 'My description 2'}
         end
         it "returns an HTTP status 201 with the representation of the resources created" do
           get '/api/v1/groups'
@@ -57,7 +57,7 @@ class APITest::GroupsTest < ActiveSupport::TestCase
     describe "GET /api/v1/groups/:id" do
       describe "when a group has been created" do
         before do
-          post '/api/v1/groups', { group: { name: 'My group', description: 'My description'} }
+          post '/api/v1/groups',  { name: 'My group', description: 'My description'}
         end
         it "returns an HTTP status 201 with the representation of the resource" do
           group_id = JSON.parse(last_response.body)['id']

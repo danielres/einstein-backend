@@ -8,7 +8,7 @@ module V1
         AddingAGroup
           .new(User.new)
           .call(
-            params[:group],
+            params,
             success: ->(resource){ resource },
             failure: ->(resource){ status 400; resource.errors },
           )
