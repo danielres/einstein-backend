@@ -1,7 +1,7 @@
 require "test_helper"
 include Warden::Test::Helpers
 
-class APITest::AuthenticationTest < ActiveSupport::TestCase
+class APITest::TokenAuthenticationTest < ActiveSupport::TestCase
 
   def app
     Rails.application
