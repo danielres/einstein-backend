@@ -7,7 +7,7 @@ class APITest::GroupsTest < ActiveSupport::TestCase
     end
 
 
-    before { set_token_authentication }
+    before { token_auth_with_user(set_test_user) }
 
 
     describe "POST /api/v1/groups" do

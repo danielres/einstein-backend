@@ -39,14 +39,18 @@ class ActiveSupport::TestCase
   include Rack::Test::Methods
 
   # Add more helper methods to be used by all tests here...
-  def set_token_authentication
-    allowed_user = User.create(
+  def token_auth_with_user(user)
+    header "Authorization", user.access_token
+  end
+
+  def set_test_user
+    User.create(
       email:"testuser@test.com",
       username: "Testuser",
       password: "123456789",
     )
-    header "Authorization", allowed_user.access_token
   end
+
 end
 
 class APITest; end
