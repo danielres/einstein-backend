@@ -6,7 +6,7 @@ module V1
       desc 'Creates a new group.'
       post do
         AddingAGroup
-          .new(User.new)
+          .new(current_user)
           .call(
             params,
             success: ->(resource){ resource },
@@ -18,7 +18,7 @@ module V1
       desc 'Returns a group by id.'
       get '/:id' do
         ViewingAGroup
-          .new(User.new)
+          .new(current_user)
           .call(
             params[:id],
             success: ->(resource){ GroupSerializer.new(resource, root: false) },
@@ -30,7 +30,7 @@ module V1
       desc 'Returns a list of groups.'
       get do
         ViewingGroups
-          .new(User.new)
+          .new(current_user)
           .call
       end
 
