@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708151126) do
+ActiveRecord::Schema.define(version: 20150720140107) do
+
+  create_table "discussions", force: :cascade do |t|
+    t.string  "title"
+    t.integer "author_id"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"

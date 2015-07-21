@@ -24,4 +24,5 @@ class API < Grape::API
 
 
   mount V1::Groups
+  mount V1::Discussions
 end
