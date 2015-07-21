@@ -3,8 +3,12 @@ require "test_helper"
 class APITest::GroupsTest < ActiveSupport::TestCase
 
     def app
-      V1::Groups
+      Rails.application
     end
+
+
+    before { set_token_authentication }
+
 
     describe "POST /api/v1/groups" do
       describe "when required params are present" do
