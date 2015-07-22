@@ -18,8 +18,8 @@ class APITest::GroupsTest < ActiveSupport::TestCase
           JSON.parse(last_response.body)['id'].must_be :present?
           JSON.parse(last_response.body)['name'].must_equal 'My group'
           JSON.parse(last_response.body)['description'].must_equal 'My description'
-          JSON.parse(last_response.body)['members'].must_equal []
-          JSON.parse(last_response.body)['discussions'].must_equal []
+          JSON.parse(last_response.body)['discussions'].must_be_kind_of Enumerable
+          JSON.parse(last_response.body)['discussions'].must_be_kind_of Enumerable
           JSON.parse(last_response.body)['created_at'].must_be :present?
           JSON.parse(last_response.body)['updated_at'].must_be :present?
         end
@@ -73,8 +73,8 @@ class APITest::GroupsTest < ActiveSupport::TestCase
           JSON.parse(last_response.body)['id'].must_equal group_id
           JSON.parse(last_response.body)['name'].must_equal 'My group'
           JSON.parse(last_response.body)['description'].must_equal 'My description'
-          JSON.parse(last_response.body)['members'].must_equal []
-          JSON.parse(last_response.body)['discussions'].must_equal []
+          JSON.parse(last_response.body)['discussions'].must_be_kind_of Enumerable
+          JSON.parse(last_response.body)['discussions'].must_be_kind_of Enumerable
           JSON.parse(last_response.body)['created_at'].must_be :present?
           JSON.parse(last_response.body)['updated_at'].must_be :present?
         end
