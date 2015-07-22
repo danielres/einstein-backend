@@ -43,13 +43,11 @@ class ActiveSupport::TestCase
     header "Authorization", user.access_token
   end
 
-  def set_test_user
-    User.create(
-      email:"testuser@test.com",
-      username: "Testuser",
-      password: "123456789",
-    )
-  end
+  @@test_user = User.create(
+    email:"testuser@test.com",
+    username: "Testuser",
+    password: "123456789",
+  )
 
 end
 

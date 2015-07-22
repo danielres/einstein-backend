@@ -8,7 +8,7 @@ class APITest::DiscussionsTest < ActiveSupport::TestCase
   end
 
 
-  before { token_auth_with_user(set_test_user) }
+  before{ token_auth_with_user(@@test_user) }
 
 
   describe "POST /api/v1/discussions" do
