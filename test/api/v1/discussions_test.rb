@@ -17,8 +17,10 @@ class APITest::DiscussionsTest < ActiveSupport::TestCase
         post '/api/v1/discussions', { title: 'My discussion'}
         last_response.status.must_equal 201
         JSON.parse(last_response.body)['id'].must_be :present?
-        JSON.parse(last_response.body)['author_id'].must_be :present?
         JSON.parse(last_response.body)['title'].must_equal 'My discussion'
+        JSON.parse(last_response.body)['author']['id'].must_be :present?
+        JSON.parse(last_response.body)['author']['username'].must_equal "Testuser"
+        JSON.parse(last_response.body)['author']['email'].must_equal "testuser@test.com"
       end
     end
 
