@@ -9,7 +9,7 @@ module V1
           .new(current_user)
           .call(
             params,
-            success: ->(resource){ resource },
+            success: ->(resource){ GroupSerializer.new(resource, root: false) },
             failure: ->(resource){ status 400; resource.errors },
           )
       end
