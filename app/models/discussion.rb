@@ -1,4 +1,6 @@
 class Discussion < ActiveRecord::Base
+  belongs_to :discutable, polymorphic: true
+
 
   validates :title, presence: true
   validates :title, length: { minimum: 3 }
