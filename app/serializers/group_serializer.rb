@@ -1,6 +1,6 @@
 class GroupSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :description, :members, :comments, :created_at, :updated_at
+  attributes :id, :name, :description, :members, :discussions, :created_at, :updated_at
 
   def members
     [
@@ -13,7 +13,7 @@ class GroupSerializer < ActiveModel::Serializer
     ]
   end
 
-  def comments
+  def discussions
     []
   end
 
