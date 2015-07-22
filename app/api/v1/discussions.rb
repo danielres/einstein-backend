@@ -14,6 +14,18 @@ module V1
           )
       end
 
+
+      desc 'Returns a discussion by id.'
+      get '/:id' do
+        ViewingADiscussion
+          .new(current_user)
+          .call(
+            params[:id],
+            success: ->(resource){ DiscussionSerializer.new(resource, root: false) },
+            failure: ->(resource){ status 404 },
+          )
+      end
+
     end
 
   end
