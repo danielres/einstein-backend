@@ -65,7 +65,7 @@ module V1
             .new(current_user, discussion: discussion)
             .call(
               params,
-              success: ->(resource){ resource },
+              success: ->(resource){ DiscussionEntrySerializer.new(resource, root: false) },
               failure: ->(resource){ status 400; resource.errors },
             )
         end
