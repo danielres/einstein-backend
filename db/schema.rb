@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722115844) do
+ActiveRecord::Schema.define(version: 20150723152153) do
 
   create_table "discussions", force: :cascade do |t|
-    t.string  "title"
-    t.integer "author_id"
-    t.integer "discutable_id"
-    t.string  "discutable_type"
+    t.string   "title"
+    t.integer  "author_id"
+    t.integer  "discutable_id"
+    t.string   "discutable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", force: :cascade do |t|
