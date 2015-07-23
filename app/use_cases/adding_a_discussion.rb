@@ -1,7 +1,8 @@
 class AddingADiscussion
 
-  def initialize(user)
+  def initialize(user, discutable: nil)
     @user = user
+    @discutable = discutable
   end
 
   def authorized?
@@ -19,6 +20,7 @@ class AddingADiscussion
     def execute(params, success: ->{}, failure: ->{})
       discussion = Discussion.new(params)
       discussion.author = @user
+      discussion.discutable = @discutable
       if discussion.save
         success.call(discussion)
       else
