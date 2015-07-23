@@ -1,6 +1,9 @@
 class GroupSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :description, :members, :discussions, :created_at, :updated_at
+  attributes :id, :name, :description, :members, :created_at, :updated_at
+
+  has_many :discussions, serializer: ListedDiscussionSerializer
+
 
   def members
     [
