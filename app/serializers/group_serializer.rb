@@ -13,8 +13,5 @@ class GroupSerializer < ActiveModel::Serializer
     ]
   end
 
-  def discussions
-    []
-  end
 
 end
