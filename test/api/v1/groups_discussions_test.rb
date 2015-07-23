@@ -57,5 +57,23 @@ class APITest::GroupsTest < ActiveSupport::TestCase
         end
       end
     end
+
+    describe "POST /api/v1/groups/:group_id/discussions/:discussion_id/entries" do
+      describe "when a discussion has been created" do
+        before do
+          post "/api/v1/groups/#{group_id}/discussions", { title: 'My discussion' }
+        end
+        let(:discussion_id){ JSON.parse(last_response.body)['id'] }
+        describe "when required params are present" do
+          it "returns an HTTP status 201 with the representation of the resource created" do
+            post "/api/v1/groups/#{group_id}/discussions/#{discussion_id}/entries", { body: 'My entry' }
+            last_response.status.must_equal 201
+            JSON.parse(last_response.body)['id'].must_be :present?
+            JSON.parse(last_response.body)['body'].must_equal 'My entry'
+            JSON.parse(last_response.body)['discussion_id'].must_equal discussion_id
+          end
+        end
+      end
+    end
   end
 end
