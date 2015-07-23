@@ -57,6 +57,18 @@ module V1
               failure: ->(resource){ status 400; resource.errors },
             )
         end
+
+        desc 'Creates a new entry in a group discussion'
+        post 'discussions/:discussion_id/entries' do
+          discussion = Discussion.find(params.delete(:discussion_id))
+          AddingADiscussionEntry
+            .new(current_user, discussion: discussion)
+            .call(
+              params,
+              success: ->(resource){ resource },
+              failure: ->(resource){ status 400; resource.errors },
+            )
+        end
       end
 
 
