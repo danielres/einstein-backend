@@ -35,11 +35,6 @@ module V1
       end
 
       route_param :discutable_id do
-        desc 'Returns all discussions from a group'
-        get 'discussions' do
-          Group.find(params[:discutable_id]).discussions
-        end
-
         desc 'Returns a discussion by id from a group'
         get 'discussions/:discussion_id' do
           ViewingADiscussion
