@@ -55,6 +55,24 @@ class APITest::GroupsTest < ActiveSupport::TestCase
           JSON.parse(last_response.body)['author']['username'].must_equal "Testuser"
           JSON.parse(last_response.body)['author']['email'].must_equal "testuser@test.com"
         end
+
+        describe "when the discussion has entries" do
+          before do
+            post "/api/v1/groups/#{group_id}/discussions/#{discussion_id}/entries", { body: 'My entry 1' }
+            post "/api/v1/groups/#{group_id}/discussions/#{discussion_id}/entries", { body: 'My entry 2' }
+          end
+          it "shows the discussion entries in the representation of the resource" do
+            get "/api/v1/groups/#{group_id}/discussions/#{discussion_id}"
+            JSON.parse(last_response.body)['entries'][0]['body'].must_equal 'My entry 1'
+            JSON.parse(last_response.body)['entries'][0]['author']['id'].must_be :present?
+            JSON.parse(last_response.body)['entries'][0]['author']['username'].must_equal "Testuser"
+            JSON.parse(last_response.body)['entries'][0]['author']['email'].must_equal "testuser@test.com"
+            JSON.parse(last_response.body)['entries'][1]['body'].must_equal 'My entry 2'
+            JSON.parse(last_response.body)['entries'][1]['author']['id'].must_be :present?
+            JSON.parse(last_response.body)['entries'][1]['author']['username'].must_equal "Testuser"
+            JSON.parse(last_response.body)['entries'][1]['author']['email'].must_equal "testuser@test.com"
+          end
+        end
       end
     end
 
