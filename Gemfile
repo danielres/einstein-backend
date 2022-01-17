@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.1'
+gem 'rails', '5.2.4.6'
 
-gem 'rails-api'
+gem 'rails-api', '>= 0.4.0'
 
-gem 'rack-cors', require: 'rack/cors'
+gem 'rack-cors', '>= 1.0.5', require: 'rack/cors'
 
 
 gem 'spring', group: :development
@@ -20,27 +20,27 @@ group :production do
   gem 'pg'
 end
 
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 
-gem 'thin'
+gem 'thin', '>= 1.6.1'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '>= 0.9.3'
 
-gem 'grape'
+gem 'grape', '>= 1.1.0'
 gem 'hashie-forbidden_attributes'
 
 group :test do
-  gem 'minitest-rails'
-  gem 'minitest-rails-capybara'
+  gem 'minitest-rails', '>= 3.0.0'
+  gem 'minitest-rails-capybara', '>= 3.0.0'
   gem 'minitest-focus'
   gem 'minitest-reporters'
   gem 'database_cleaner'
   gem 'mocha'
-  gem 'shoulda'
+  gem 'shoulda', '>= 3.5.0'
 end
 
 group :development do
-  gem 'guard' # NOTE: this is necessary in newer versions
+  gem 'guard' , '>= 2.12.6' # NOTE: this is necessary in newer versions
   gem 'guard-minitest'
 end
 
