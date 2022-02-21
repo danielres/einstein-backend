@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.1'
+gem 'rails', '5.2.6.2'
 
-gem 'rails-api'
+gem 'rails-api', '>= 0.4.0'
 
 gem 'rack-cors', require: 'rack/cors'
 
@@ -20,7 +20,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'devise'
+gem 'devise', '>= 4.4.2'
 
 gem 'thin'
 
@@ -30,8 +30,8 @@ gem 'grape'
 gem 'hashie-forbidden_attributes'
 
 group :test do
-  gem 'minitest-rails'
-  gem 'minitest-rails-capybara'
+  gem 'minitest-rails', '>= 3.0.0'
+  gem 'minitest-rails-capybara', '>= 3.0.0'
   gem 'minitest-focus'
   gem 'minitest-reporters'
   gem 'database_cleaner'
